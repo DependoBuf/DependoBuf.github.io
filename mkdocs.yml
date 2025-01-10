@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: DependoBuf
+site_url: https://dependobuf.github.io
+repo_name: DependoBuf
+repo_url: https://github.com/DependoBuf/dependobuf
+theme:
+  name: material
+  icon:
+    logo: material/book
+    repo: simple/github
+  favicon: assets/logo.png
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: System preference
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Dark mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Light mode
