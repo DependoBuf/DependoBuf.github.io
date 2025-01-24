@@ -24,3 +24,5 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Light mode
+plugins:
+  - privacy
