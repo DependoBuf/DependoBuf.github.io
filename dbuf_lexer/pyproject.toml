@@ -1,0 +1,7 @@
+[project]
+name = "dbuf_lexer"
+version = "0.0.1"
+dependencies = ["pygments"]
+
+[project.entry-points."pygments.lexers"]
+example_lexer = "dbuf:DbufLexer"

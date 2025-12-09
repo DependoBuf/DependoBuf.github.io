@@ -26,7 +26,7 @@ jobs:
           path: .cache
           restore-keys: |
             zensical-
-      - run: pip install zensical
+      - run: pip install -r requirements.txt
       - run: zensical build --clean
       - uses: actions/upload-pages-artifact@v4
         with:
