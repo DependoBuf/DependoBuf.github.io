@@ -3,11 +3,11 @@ site_name = "DependoBuf"
 # site_url = "https://dependobuf.github.io"
 site_url = "https://inttik.github.io/DependoBuf.github.io/"
 
-repo_name = "DependoBuf"
+# repo_name = "DependoBuf"
 # repo_url = "https://github.com/DependoBuf/dependobuf"
 repo_url = "https://github.com/inttik/DependoBuf.github.io"
 # repo_url = "https://github.com/DependoBuf/dependobuf/docs/edit/main/docs"
-edit_url = "edit/main/docs/"
+edit_url = "https://github.com/inttik/DependoBuf.github.io/edit/main/docs/"
 
 nav = [
     "index.md",
@@ -30,8 +30,8 @@ language = "en"
 
 features = [
     # "announce.dismiss",
-    #"content.action.edit",
-    #"content.action.view",
+    "content.action.edit",
+    "content.action.view",
     "content.code.annotate",
     "content.code.copy",
     "content.code.select",
