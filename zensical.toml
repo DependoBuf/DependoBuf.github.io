@@ -12,6 +12,11 @@ nav = [
     "type_checking.md"
 ]
 
+extra_javascript = [
+    "javascripts/mathjax.js",
+    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"
+]
+
 [project.theme]
 variant = "classic"
 favicon = "assets/logo.png"
@@ -174,12 +179,12 @@ scheme = "default"
 toggle.icon = "material/brightness-7"
 toggle.name = "Light mode mode"
 
-[project.plugins.privacy]
-
 [project.markdown_extensions.pymdownx.highlight]
 anchor_linenums = true
 [project.markdown_extensions.pymdownx.superfences]
 
-[project.markdown_extensions.def_list]
 [project.markdown_extensions.pymdownx.tasklist]
 custom_checkbox = true
+
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true

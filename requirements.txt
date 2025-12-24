@@ -1,5 +1,5 @@
 click==8.3.1
-./dbuf_lexer
+-e ./dbuf_lexer
 deepmerge==2.0
 Markdown==3.10
 Pygments==2.19.2

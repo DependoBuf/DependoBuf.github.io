@@ -9,48 +9,57 @@ class DbufLexer(RegexLexer):
 
     tokens = {
         'root': [
-            # Whitespace
-            (r'\s+', Text),
+            # Space
+            (r'\s+', Whitespace),
             
-            # Storage type keywords (message, enum)
-            (r'\b(message|enum)\b', Keyword),
-            
-            # Types (capitalized words)
-            (r'\b[A-Z]\w*\b', Name.Class),
-            
-            # Numeric constants
-            (r'\b\d+u\b', Number),  # Unsigned integers
-            (r'[+-]?\d+(\.\d+)?', Number),  # Signed integers and floats
-            
+            # Keyword type declaration
+            (r'\b(message)\b', Keyword.Declaration),
+            (r'\b(enum)\b', Keyword.Declaration),
+
             # Boolean constants
-            (r'\b(true|false)\b', Keyword.Constant),
+            (r'\b(true)\b', Keyword.Constant),
+            (r'\b(false)\b', Keyword.Constant),
+
+            # Type name
+            (r'\b([A-Z]\w*)\b', Name.Class),
+
+            # Var name (also a.b.c)
+            (r'\b([a-z]\w*(?:\.[a-z]\w*)*)\b', Name.Variable),
             
-            # Arrow operator
-            (r'=>', Operator),
-            
-            # Empty pattern (asterisk with lookahead)
+            # Numeric literals
+            (r'\b(\d+\.\d+)\b', Number.Float),
+            (r'\b(\d+u)\b', Number.Integer), 
+            (r'\b(\d+)\b', Number.Integer),
+
+            # String literal
+            (r'"', String.Double, 'string'),
+
+            # Single line comment
+            (r"//.*", Comment.Single),
+
+            # Multiline comment
+            (r"/\*", Comment.Multiline, 'comment'),
+    
+            # Empty pattern
             (r'\*(?=\s*,|\s*=>|\s*})', Keyword.Constant),
-            
-            # Variable/field access (dot notation)
-            (r'\b[a-z]\w*(?:\.[a-z]\w*)*\b', Name.Variable),
-            
-            # Strings
-            (r'"', String, 'string'),
-            
-            # Other punctuation
-            (r'[{}[\](),;:]', Punctuation),
-            
+
             # Operators
-            (r'[=!<>]=?|[+\-*/%&|^]', Operator),
+            (r'=>', Operator),
+            (r'[+\-*/&|!]', Operator),
+            
+            # Punctuation
+            (r'[{}().,;:]', Punctuation),
         ],
         
         'string': [
-            # Escaped characters
             (r'\\.', String.Escape),
-            # End of string
-            (r'"', String, '#pop'),
-            # All other characters in string
-            (r'[^\\"]+', String),
+            (r'"', String.Double, '#pop'),
+            (r'[^\\"]+', String.Double),
+        ],
+
+        'comment': [
+            (r'\*/', Comment.Multiline, "#pop"),
+            (r'[^*]+', Comment.Multiline),
         ],
     }
 

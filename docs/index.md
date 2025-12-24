@@ -1,4 +1,5 @@
 ---
+title: Introduction
 icon: "lucide/rocket"
 ---
 
@@ -10,20 +11,3 @@ icon: "lucide/rocket"
 * [ ] lexers
 * [ ] type checks
 
-```dbuf
-message Example {
-  x Int;
-  y String;
-}
-```
-
-```dbuf
-enum Example2 (x Int) {
-  1 => {
-    Ctr1
-  }
-  * => {
-    Ctr2
-  }
-}
-```

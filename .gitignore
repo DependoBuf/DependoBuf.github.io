@@ -1,5 +1,5 @@
-./dbuf_lexer/build
-./dbuf_lexer/dbuf_lexer.egg-info
+dbuf_lexer/build
+dbuf_lexer/dbuf_lexer.egg-info
 
 .cache
 .venv
