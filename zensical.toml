@@ -7,7 +7,7 @@ repo_name = "DependoBuf"
 # repo_url = "https://github.com/DependoBuf/dependobuf"
 repo_url = "https://github.com/inttik/DependoBuf.github.io"
 # repo_url = "https://github.com/DependoBuf/dependobuf/docs/edit/main/docs"
-edit_url = "https://github.com/inttik/DependoBuf.github.io/edit/main/docs/"
+edit_url = "edit/main/docs/"
 
 nav = [
     "index.md",
@@ -15,12 +15,12 @@ nav = [
     "get_start.md",
     "user_guide.md",
     "parsing.md",
-    "type_checking.md"
+    "type_checking.md",
 ]
 
 extra_javascript = [
     "javascripts/mathjax.js",
-    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"
+    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
 ]
 
 [project.theme]
@@ -29,15 +29,15 @@ favicon = "assets/logo.png"
 language = "en"
 
 features = [
-    "announce.dismiss",
-    "content.action.edit",
-    "content.action.view",
+    # "announce.dismiss",
+    #"content.action.edit",
+    #"content.action.view",
     "content.code.annotate",
     "content.code.copy",
     "content.code.select",
-    "content.footnote.tooltips",
-    "content.tabs.link",
-    "content.tooltips",
+    #"content.footnote.tooltips",
+    #"content.tabs.link",
+    #"content.tooltips",
     #"header.autohide",
     #"navigation.expand",
     "navigation.footer",
@@ -45,14 +45,14 @@ features = [
     "navigation.instant",
     "navigation.instant.prefetch",
     #"navigation.instant.progress",
-    "navigation.path",
+    #"navigation.path",
     #"navigation.prune",
     "navigation.sections",
     #"navigation.tabs",
     #"navigation.tabs.sticky",
     "navigation.top",
     "navigation.tracking",
-    "search.highlight",
+    #"search.highlight",
     #"toc.follow", 
     #"toc.integrate",
 ]
@@ -84,9 +84,13 @@ toggle.name = "Light mode mode"
 
 [project.markdown_extensions.pymdownx.details]
 [project.markdown_extensions.pymdownx.emoji]
-[project.markdown_extensions.pymdownx.inlinehilite]
 [project.markdown_extensions.pymdownx.highlight]
 anchor_linenums = true
+linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.snippets]
 [project.markdown_extensions.pymdownx.superfences]
 
 [project.markdown_extensions.pymdownx.tasklist]

@@ -12,7 +12,7 @@ Protocol currently supports creation for only two kinds of object: `#!dbuf messa
 
 === "Simple `#!dbuf message`"
     `#!dbuf message` is like improved struct from other languages.
-    ```dbuf
+    ```dbuf 
     /*
         Multi line comment (1)
     */
@@ -318,3 +318,19 @@ visiting:
 * [Parsing](parsing.md) and [Type Checking](type_checking.md) to learn about language constrains.
 
 FIXME (delme) CHECK
+
+
+$$
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 \\
+    6 \\ 
+\end{bmatrix}
++
+1 + (2 - 3) + (\frac{4}{5})
+\frac{4}{3}
+$$
+
+``` py
+import tensorflow as tf
+```
