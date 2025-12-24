@@ -43,6 +43,10 @@ class DbufLexer(RegexLexer):
             # Empty pattern
             (r'\*(?=\s*,|\s*=>|\s*})', Keyword.Constant),
 
+            # Empty pattern followed by comment, only for docs:
+            # * followed by comments can be only if * is pattern match
+            (r'\*(?=\s*/)', Keyword.Constant),
+
             # Operators
             (r'=>', Operator),
             (r'[+\-*/&|!]', Operator),

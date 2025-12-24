@@ -1,8 +1,13 @@
 [project]
 site_name = "DependoBuf"
-site_url = "https://dependobuf.github.io"
+# site_url = "https://dependobuf.github.io"
+site_url = "https://inttik.github.io/DependoBuf.github.io/"
+
 repo_name = "DependoBuf"
-repo_url = "https://github.com/DependoBuf/dependobuf"
+# repo_url = "https://github.com/DependoBuf/dependobuf"
+repo_url = "https://github.com/inttik/DependoBuf.github.io"
+# repo_url = "https://github.com/DependoBuf/dependobuf/docs/edit/main/docs"
+edit_url = "https://github.com/inttik/DependoBuf.github.io/edit/main/docs/"
 
 nav = [
     "index.md",
@@ -25,8 +30,8 @@ language = "en"
 
 features = [
     "announce.dismiss",
-    #"content.action.edit",
-    #"content.action.view",
+    "content.action.edit",
+    "content.action.view",
     "content.code.annotate",
     "content.code.copy",
     "content.code.select",
@@ -79,6 +84,7 @@ toggle.name = "Light mode mode"
 
 [project.markdown_extensions.pymdownx.details]
 [project.markdown_extensions.pymdownx.emoji]
+[project.markdown_extensions.pymdownx.inlinehilite]
 [project.markdown_extensions.pymdownx.highlight]
 anchor_linenums = true
 [project.markdown_extensions.pymdownx.superfences]
@@ -91,4 +97,7 @@ generic = true
 
 [project.markdown_extensions.pymdownx.tabbed]
 alternate_style = true
+[project.markdown_extensions.pymdownx.tabbed.slugify]
+object = "pymdownx.slugs.slugify"
+kwds = { case = "lower" }
 

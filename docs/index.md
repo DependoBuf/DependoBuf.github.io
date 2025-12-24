@@ -68,7 +68,7 @@ Consider transmission of binary tree as example.
     ```
 
     !!! danger
-        Names of standart types are not fixed, so the code
+        Names of builtin types are not fixed, so the code
         might be incorrect.
 
     </div>
@@ -84,9 +84,7 @@ Consider transmission of binary tree as example.
     </div>
 
 
-
-
-Futher reading
+## Documentation pages
 
 * [Installation](install.md) documentation to install DependoBuf.
 * [Get Started](get_start.md) documentation to write simple serialization protocols.
