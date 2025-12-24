@@ -4,21 +4,24 @@ icon: material/play-circle-outline
 
 # Get Started
 
-First, [install](install.md) DBuf if haven't done it before. 
-
+First, [install](install.md) DBuf if haven't done it before.
 
 ## Simplest structures
-Protocol currently supports creation for only two kinds of object: `#!dbuf message` and `#!dbuf enum`. 
+
+Protocol currently supports creation for only two kinds of object: `#!dbuf message`
+and `#!dbuf enum`.
 
 === "Simple `#!dbuf message`"
+
     `#!dbuf message` is like improved struct from other languages.
-    ```dbuf 
+
+    ```dbuf
     /*
         Multi line comment (1)
     */
     message Person/* (2)! */ {
         age/* (3)! */ Int;
-        name String/* (4)! */; // sigle line comment  (5)
+        name String/* (4)! */; // single line comment  (5)
     }
     ```
 
@@ -27,19 +30,23 @@ Protocol currently supports creation for only two kinds of object: `#!dbuf messa
     3. Name of field
     4. Type of field
     5. !!! danger "Currently not supported"
+
 === "Simple `#!dbuf enum`"
-    `#!dbuf enum` is an object that can contain only one of constructors. Also in dbuf It allows
-    pattern match to has different constructors. 
+
+    `#!dbuf enum` is an object that can contain only one of constructors. Also
+    in dbuf It allows
+    pattern match to has different constructors.
+
     ```dbuf
     /*
         Multi line comment (1)
     */
     enum Color/* (2)! */ {
-        Red/* (3)! */ 
+        Red/* (3)! */
         Black {}/* (4)! */
         Other/* (5)! */ {
             r/* (6)! */ Int;
-            g Int/* (7)! */; 
+            g Int/* (7)! */;
             b Int; // Single line comment (8)
         }
     }
@@ -54,15 +61,17 @@ Protocol currently supports creation for only two kinds of object: `#!dbuf messa
     7. Type of field of constructor `#!dbuf Other`
     8. !!! danger "Currently not supported"
 
-
 !!! note
-    By convention every object name stats with capital letter, and every field name stats with lowercase letter.
-    Consider visiting [parsing](parsing.md) documentation to find all rules of naming.
+    By convention every object name stats with capital letter, and every field name
+    stats with lowercase letter. Consider visiting [parsing](parsing.md) documentation
+    to find all rules of naming.
 
 ## Depended structures
-Depended types is the key feature of *DependoBuf*. 
+
+Depended types is the key feature of *DependoBuf*.
 
 === "Depended `#!dbuf message`"
+
     ```dbuf
     message Fixed/* (1)! */ (i/*(2)!*/ Int/*(3)!*/) {
     }
@@ -97,6 +106,7 @@ Depended types is the key feature of *DependoBuf*.
     13. Dependency `#!dbuf other` of `#!dbuf Sample` if set to be `#!dbuf 0` 
 
 === "Depended `#!dbuf enum`"
+
     ```dbuf 
     message Fixed/* (1)! */ (i/*(2)!*/ Int/*(3)!*/) {
     }
@@ -119,23 +129,26 @@ Depended types is the key feature of *DependoBuf*.
     3. Type of dependency
     4. `#!dbuf Sample` is an `#!dbuf enum` that has one dependency
     5. Dependency of `#!dbuf Sample`
-    6. Pattern matching syntax that explained in [next](#enum-pattern-matching) block
+    6. Pattern matching syntax that explained in
+       [next](#enum-pattern-matching) block
     7. Empty constructor that ignores dependency `#!dbuf (x Int)`
     8. Not empty constructor that ignores dependency `#!dbuf (x Int)`
-    9. `#!dbuf Ctr3` contains field with dependent type. Specifies 
+    9.  `#!dbuf Ctr3` contains field with dependent type. Specifies 
        its dependencies with arguments separated by spaces.
     10. Dependency `#!dbuf i` of `#!dbuf Fixed` is set to be same as dependency 
         `#!dbuf x` of `#!dbuf Sample` 
 
 ## Enum pattern matching
 
-Enum pattern matching is a way to allow using different enum constructors based on dependenices.
+Enum pattern matching is a way to allow using different enum constructors based
+on dependencies.
 
 ### Simple pattern matching
 
 Builtin dependencies can be matched via aliases or literals.
 
 === "One dependency `#!dbuf enum`"
+
     ```dbuf
     message Fixed (i Int) {
     }
@@ -157,14 +170,18 @@ Builtin dependencies can be matched via aliases or literals.
     ```
 
     1. Dependency `#!dbuf (size Unsigned)` for which we pattern match
-    2. Aliasing, that catches every possible `#!dbuf size` and gives it alias name `#!dbuf x`
+    2. Aliasing, that catches every possible `#!dbuf size` and gives it alias
+       name `#!dbuf x`
     3. To fulfil dependency requirements we can use alias `#!dbuf x`
-    4. Also to fulfil dependency requirements we still can use `#!dbuf Sample` dependency `#!dbuf size`
+    4. Also to fulfil dependency requirements we still can use `#!dbuf Sample`
+       dependency `#!dbuf size`
     5. For builtin types we can use literals to pattern match on them
     6. !!! note "One pattern match might contain more than one constructor"
-    7. Catch all pattern, that allows to use Its constructors for every possible dependencies
+    7. Catch all pattern, that allows to use Its constructors for every possible
+       dependencies
     8. !!! note "Pattern match might contain no constructor"
 === "Two dependencies `#!dbuf enum`"
+
     ```dbuf
     message Fixed (i Int) {
     }
@@ -200,9 +217,11 @@ Builtin dependencies can be matched via aliases or literals.
     9. Catch all pattern for multiple dependencies
 
 ### Pattern matching by constructors
+
 Matching on `#!dbuf enum` or `#!dbuf message` might be done via constructor match.
 
-=== "`#!dbuf message` match"
+=== "Match `#!dbuf message`"
+
     ```dbuf
     message Fixed (i Int) {
     }
@@ -231,9 +250,11 @@ Matching on `#!dbuf enum` or `#!dbuf message` might be done via constructor matc
     3. Matches on every `#!dbuf g` and `#!dbuf b`
     4. Using alias `#!dbuf rAlias`
     5. Another way to access fields of `#!dbuf message`
-    6. Matches only if `#!dbuf b` is `#!dbuf 0`, and creates alias `#!dbuf rAlias` for `#!dbuf c.r`
+    6. Matches only if `#!dbuf b` is `#!dbuf 0`, and creates alias
+       `#!dbuf rAlias` for `#!dbuf c.r`
 
-=== "`#!dbuf enum` match"
+=== "Match `#!dbuf enum`"
+
     ```dbuf
     message Fixed (i Int) {
     }
@@ -269,7 +290,7 @@ Matching on `#!dbuf enum` or `#!dbuf message` might be done via constructor matc
     }
     ```
     
-    1. Mathing on `#!dbuf enum` `#!dbuf Color`
+    1. Matching on `#!dbuf enum` `#!dbuf Color`
     2. Matching on `#!dbuf Red` constructor
     3. Matching on `#!dbuf Black` constructor
     4. Matching on `#!dbuf Other` constructor, creating alias `#!dbuf r`
@@ -277,8 +298,10 @@ Matching on `#!dbuf enum` or `#!dbuf message` might be done via constructor matc
     6. Matches only if `#!dbuf b` is `#!dbuf 0`, and creates alias `#!dbuf r`
 
 ## Constructed value
-Sometimes `#!dbuf message` or `#!dbuf enum` is depends on other `#!dbuf message` or `#!dbuf enum`.
-To fullfil its dependency we may force user to create field of such type and then use that field as dependency. 
+
+Sometimes `#!dbuf message` or `#!dbuf enum` is depends on other `#!dbuf message`
+or `#!dbuf enum`. To fullfil its dependency we may force user to create field of
+such type and then use that field as dependency.
 
 ```dbuf
 message A {}
@@ -289,42 +312,91 @@ message Example {
 }
 ```
 
-That is quite inconvinient so *DependoBuf* allows using constructed value to satisfy dependencies.
+That is quite inconvenient so *DependoBuf* allows using constructed value to
+satisfy dependencies.
 
-!!! todo
-    constructed value
+=== "Construct `#!dbuf message`"
 
+    ```dbuf
+    message Person {
+        age Int;
+        name String;
+    }
 
-!!! note 
-    In constructed value we specify only fields of constructor, not Its dependencies since they are derived
-    from type declaration.
+    message Wage (p Person) {
+    }
 
+    message Example {
+        num Int;
+        w Wage/* (1)! */ Person{age: num/* (2)! */, name: "Steven"/* (3)! */};
+    }
+    ```
+
+    1. `#!dbuf Wage` depends on `#!dbuf Person`. But there is no person in context,
+       so we construct it
+    2. Set field `#!dbuf age` of constructed `#!dbuf Person` equal to `#!dbuf num`
+    3. Set field `#!dbuf name` of constructed `#!dbuf Person` equal to `#!dbuf "Steven"`
+
+=== "Construct `#!dbuf enum`"
+
+    ```dbuf
+    enum Color {
+        Red
+        Black {}
+        Other {
+            r Int;
+            g Int;
+            b Int;
+        }
+    }
+
+    enum ColorMatch (c Color) {
+        /* simplified */
+    }
+
+    message ColorWarehouse {
+        red ColorMatch Red{}/* (1)! */;
+        other ColorMatch Other/* (2)! */{r: 12/* (3)! */, g: 0, b: 0};
+    }
+    ```
+
+    1. Construct `#!dbuf Color` using empty constructor `#!dbuf Red`
+    2. Construct `#!dbuf Color` using constructor `#!dbuf Other`
+    3. Set field `#!dbuf r` of constructed `#!dbuf Other` equal to `#!dbuf "12"`
+
+!!! note
+    In constructed value we specify only fields of constructor, not Its dependencies
+    since they are derived from type declaration.
 
 ## Compile
+
 To compile protocol `<name.dbuf>` to programming `<languages>` use:
-```
+
+```bash
 dbuf compile --file <name.dbuf> -o <languages>
-``` 
+```
 
-That will create files with your structures, defined in DBuf, with methods to send and receive them.
+That will create files with your structures, defined in DBuf, with methods to
+send and receive them.
 
-Also if you want to place such files in specific place, use `--path` flag. 
+Also if you want to place such files in specific place, use `--path` flag.
 
 ## What's next?
-Now that you've made it through, you have the tools to write .dbuf protocols. Consider 
+
+Now that you've made it through, you have the tools to write .dbuf protocols. Consider
 visiting:
 
-* [User Guide](user_guide.md) to learn about language featuress.
-* [Parsing](parsing.md) and [Type Checking](type_checking.md) to learn about language constrains.
+* [User Guide](user_guide.md) to learn about language features.
+* [Parsing](parsing.md) and [Type Checking](type_checking.md) to learn about
+  language constrains.
 
 FIXME (delme) CHECK
-
 
 $$
 \begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 \\
-    6 \\ 
+    6 \\
 \end{bmatrix}
 +
 1 + (2 - 3) + (\frac{4}{5})
