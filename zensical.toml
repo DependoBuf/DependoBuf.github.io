@@ -1,11 +1,11 @@
 [project]
 site_name = "DependoBuf"
 # site_url = "https://dependobuf.github.io"
-site_url = "https://inttik.github.io/DependoBuf.github.io/"
+site_url = "https://DependoBuf.github.io/"
 
 repo_name = "DependoBuf"
 repo_url = "https://github.com/DependoBuf/dependobuf"
-edit_uri = "https://github.com/inttik/DependoBuf.github.io/edit/main/docs/"
+edit_uri = "https://github.com/DependoBuf/DependoBuf.github.io/edit/main/docs/"
 # edit_uri = "https://github.com/DependoBuf/DependoBuf.github.io/edit/main/docs"
 
 nav = [
