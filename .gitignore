@@ -1,5 +1,6 @@
 dbuf_lexer/build
 dbuf_lexer/dbuf_lexer.egg-info
+dbuf_lexer/__pycache__
 
 .cache
 .venv
