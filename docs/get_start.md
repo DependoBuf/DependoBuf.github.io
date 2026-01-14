@@ -25,11 +25,11 @@ and `#!dbuf enum`.
     }
     ```
 
-    1. !!! danger "Currently not supported"
+    1. !!! warning "Currently not supported"
     2. Name of structure
     3. Name of field
     4. Type of field
-    5. !!! danger "Currently not supported"
+    5. !!! warning "Currently not supported"
 
 === "Simple `#!dbuf enum`"
 
@@ -52,14 +52,14 @@ and `#!dbuf enum`.
     }
     ```
 
-    1. !!! danger "Currently not supported"
+    1. !!! warning "Currently not supported"
     2. Name of enum
     3. Constructor for enum that has no field
     4. Other way to define empty constructor
     5. Constructor that contains some fields
     6. Name of field of constructor `#!dbuf Other`
     7. Type of field of constructor `#!dbuf Other`
-    8. !!! danger "Currently not supported"
+    8. !!! warning "Currently not supported"
 
 !!! note
     By convention every object name stats with capital letter, and every field name

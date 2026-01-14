@@ -18,7 +18,7 @@ There is several types builtin language.
 
 ### Standard Library
 
-!!! danger
+!!! warning
     Not implemented
 
 Also there is should(?) be standard library with types.
@@ -60,7 +60,7 @@ message Example {
 
 ## Modular System
 
-!!! danger
+!!! warning
     Not implemented
 
 Modular system can be implemented in such way.
@@ -132,7 +132,7 @@ enum List (length Nat) {
 
 ## Comment
 
-!!! danger
+!!! warning
     Not implemented
 
 Comments can be single line and multi line.

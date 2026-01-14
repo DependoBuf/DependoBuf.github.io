@@ -190,7 +190,7 @@ where
 
 ## Comment parsing
 
-!!! danger
+!!! warning
     Comments are not implemented
 
 Comments can be linked to different objects in DependoBuf. If they are, comments

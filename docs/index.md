@@ -69,7 +69,7 @@ Consider transmission of binary tree as example.
     }
     ```
 
-    !!! danger
+    !!! warning
         Names of builtin types are not fixed, so the code
         might be incorrect.
 
